@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/GameOver.gd" type="Script" id=1]
+
+[node name="GameOver" type="Node2D"]
+visible = false
+z_index = 15
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -124.0
+margin_top = -122.0
+margin_right = 143.0
+margin_bottom = -49.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -118.967
+margin_top = -114.078
+margin_right = 9.03252
+margin_bottom = -83.0779
+rect_scale = Vector2( 2, 2 )
+text = "     GAME OVER
+Press R to restart"
+uppercase = true

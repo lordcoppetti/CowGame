@@ -1,0 +1,101 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "CharacterBody",
+"language": "GDScript",
+"path": "res://src/CharacterBody.gd"
+}, {
+"base": "Node2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://src/Enemy.gd"
+}, {
+"base": "Node",
+"class": "Items",
+"language": "GDScript",
+"path": "res://src/Items.gd"
+}, {
+"base": "Node2D",
+"class": "Level",
+"language": "GDScript",
+"path": "res://src/Level.gd"
+}, {
+"base": "Node2D",
+"class": "LevelStart",
+"language": "GDScript",
+"path": "res://src/LevelStart.gd"
+}, {
+"base": "Node2D",
+"class": "NextLevel",
+"language": "GDScript",
+"path": "res://src/NextLevel.gd"
+}, {
+"base": "Node2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://src/Player.gd"
+}, {
+"base": "Sprite",
+"class": "WinItem",
+"language": "GDScript",
+"path": "res://src/WinItem.gd"
+} ]
+_global_script_class_icons={
+"CharacterBody": "",
+"Enemy": "",
+"Items": "",
+"Level": "",
+"LevelStart": "",
+"NextLevel": "",
+"Player": "",
+"WinItem": ""
+}
+
+[application]
+
+config/name="Doggoventure"
+run/main_scene="res://scenes/levels/level01.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+Main="*res://src/Main.gd"
+
+[display]
+
+window/size/width=512
+window/size/height=512
+window/size/test_width=512
+window/size/test_height=512
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[input]
+
+restart={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":82,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
