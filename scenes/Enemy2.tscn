@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Enemy.gd" type="Script" id=1]
-[ext_resource path="res://sprites/enemy01.png" type="Texture" id=2]
+[ext_resource path="res://sprites/enemy02.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.55785, 9.99205 )
@@ -76,6 +76,7 @@ position = Vector2( -2.10432, 9.08167 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+position = Vector2( -2.38379, 5.56217 )
 scale = Vector2( 1.25, 1.25 )
 z_index = 1
 texture = ExtResource( 2 )
