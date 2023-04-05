@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/Level.gd" type="Script" id=1]
 [ext_resource path="res://sprites/block01.png" type="Texture" id=2]
@@ -6,9 +6,7 @@
 [ext_resource path="res://scenes/GameOver.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/LevelStart.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/Enemy2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/WinItem.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/Enemy3.tscn" type="PackedScene" id=10]
 [ext_resource path="res://sprites/back01.png" type="Texture" id=11]
 [ext_resource path="res://shaders/vhs_scanlines.gdshader" type="Shader" id=12]
@@ -102,22 +100,53 @@ tile_data = PoolIntArray( -458760, 0, 0, -458759, 0, 0, -458758, 0, 0, -458757, 
 script = ExtResource( 3 )
 
 [node name="WinItem3" parent="Level/Items" instance=ExtResource( 8 )]
-position = Vector2( 320, 128 )
+position = Vector2( -96, -160 )
+scale = Vector2( 0.51, 0.51 )
+
+[node name="WinItem4" parent="Level/Items" instance=ExtResource( 8 )]
+position = Vector2( 96, -160 )
+scale = Vector2( 0.51, 0.51 )
+
+[node name="WinItem5" parent="Level/Items" instance=ExtResource( 8 )]
+position = Vector2( -128, 192 )
+scale = Vector2( 0.51, 0.51 )
+
+[node name="WinItem6" parent="Level/Items" instance=ExtResource( 8 )]
+position = Vector2( -7.62939e-06, 1.52588e-05 )
+scale = Vector2( 0.51, 0.51 )
+
+[node name="WinItem7" parent="Level/Items" instance=ExtResource( 8 )]
+position = Vector2( 192, -96 )
 scale = Vector2( 0.51, 0.51 )
 
 [node name="Enemies" type="Node" parent="Level"]
 
-[node name="Enemy5" parent="Level/Enemies" instance=ExtResource( 9 )]
-position = Vector2( -320, 192 )
-
-[node name="Enemy" parent="Level/Enemies" instance=ExtResource( 7 )]
-position = Vector2( -320, 128 )
-
 [node name="Enemy6" parent="Level/Enemies" instance=ExtResource( 10 )]
-position = Vector2( -320, 64 )
+position = Vector2( -64, 0 )
+
+[node name="Enemy7" parent="Level/Enemies" instance=ExtResource( 10 )]
+position = Vector2( 64, 0 )
+
+[node name="Enemy8" parent="Level/Enemies" instance=ExtResource( 10 )]
+position = Vector2( 0, -160 )
+
+[node name="Enemy9" parent="Level/Enemies" instance=ExtResource( 10 )]
+position = Vector2( 0, 160 )
+
+[node name="Enemy10" parent="Level/Enemies" instance=ExtResource( 10 )]
+position = Vector2( -192, -64 )
+
+[node name="Enemy12" parent="Level/Enemies" instance=ExtResource( 10 )]
+position = Vector2( 192, 32 )
+
+[node name="Enemy13" parent="Level/Enemies" instance=ExtResource( 10 )]
+position = Vector2( -192, 32 )
+
+[node name="Enemy11" parent="Level/Enemies" instance=ExtResource( 10 )]
+position = Vector2( 192, -64 )
 
 [node name="Player" parent="Level" instance=ExtResource( 6 )]
-position = Vector2( 320, 192 )
+position = Vector2( 201.678, 195.003 )
 
 [node name="LevelStart" parent="Level" instance=ExtResource( 5 )]
 
