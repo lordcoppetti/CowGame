@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/WinItem.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/GameOver.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://sprites/block01.png" type="Texture" id=6]
 [ext_resource path="res://src/Level.gd" type="Script" id=7]
 [ext_resource path="res://src/Items.gd" type="Script" id=8]
+[ext_resource path="res://sprites/back01.png" type="Texture" id=9]
+[ext_resource path="res://shaders/vhs_scanlines.gdshader" type="Shader" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -43,6 +45,30 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 10 )
+shader_param/overlay = true
+shader_param/scanlines_opacity = 0.088
+shader_param/scanlines_width = 0.197
+shader_param/grille_opacity = 0.0
+shader_param/resolution = Vector2( 800, 600 )
+shader_param/pixelate = false
+shader_param/roll = false
+shader_param/roll_speed = 10.0
+shader_param/roll_size = 0.0
+shader_param/roll_variation = 1.8
+shader_param/distort_intensity = 0.05
+shader_param/noise_opacity = 0.4
+shader_param/noise_speed = 5.0
+shader_param/static_noise_intensity = 0.06
+shader_param/aberration = 0.03
+shader_param/brightness = 1.4
+shader_param/discolor = false
+shader_param/warp_amount = 0.084
+shader_param/clip_warp = false
+shader_param/vignette_intensity = 0.4
+shader_param/vignette_opacity = 0.045
 
 [node name="Main2" type="Node2D"]
 
@@ -120,6 +146,14 @@ position = Vector2( 0, 192 )
 current = true
 
 [node name="EndLevelTimer" type="Timer" parent="Level"]
+
+[node name="background2" type="Sprite" parent="."]
+material = SubResource( 6 )
+position = Vector2( -256, -256 )
+scale = Vector2( 4, 4 )
+z_index = 20
+texture = ExtResource( 9 )
+centered = false
 
 [connection signal="game_over" from="Level/Player" to="Level" method="_on_Player_game_over"]
 [connection signal="timeout" from="Level/EndLevelTimer" to="Level" method="_on_EndLevelTimer_timeout"]

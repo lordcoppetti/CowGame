@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/kinda-lofi.mp3-b0eee8c2988e78025e4e283b9796b2a8.mp3str"
+
+[deps]
+
+source_file="res://sounds/kinda-lofi.mp3"
+dest_files=[ "res://.import/kinda-lofi.mp3-b0eee8c2988e78025e4e283b9796b2a8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

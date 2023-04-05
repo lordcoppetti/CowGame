@@ -1,0 +1,28 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+void vertex() {
+    // Do nothing, as we don't need to modify the vertex position
+}
+
+void fragment() {
+    // Get the UV coordinates of the current pixel
+    vec2 uv = SCREEN_UV;
+
+    // Create a time variable to animate the effect
+    float time = TIME * 0.1;
+
+    // Add some distortion to the UV coordinates
+    uv += vec2(sin(uv.y * 20.0 + time) * 0.002, cos(uv.x * 10.0 + time) * 0.001);
+
+    // Sample the color of the current pixel
+    vec4 color = texture(TEXTURE, uv);
+
+    // Add some scan lines by modulating the color with a sine wave
+    color *= sin(uv.y * 100.0 + time) * 0.1 + 0.9;
+
+    // Output the modified color
+    COLOR = color;
+}"

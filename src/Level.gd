@@ -42,6 +42,11 @@ func next_level():
 
 	Main.level += 1
 
+	if Main.level == 31:
+		pass
+		# Finish game
+		# TODO
+
 	# Load next level scene resource
 	get_tree().change_scene(next_level_path)
 

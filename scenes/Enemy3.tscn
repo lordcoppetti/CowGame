@@ -76,7 +76,7 @@ position = Vector2( -2.10432, 9.08167 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D"]
-modulate = Color( 1, 0, 0, 1 )
+modulate = Color( 1, 0.392157, 0.392157, 1 )
 position = Vector2( -2.38379, 5.56217 )
 scale = Vector2( 1.25, 1.25 )
 z_index = 1

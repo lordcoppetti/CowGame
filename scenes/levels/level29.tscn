@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/Level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Enemy2.tscn" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://scenes/WinItem.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Enemy3.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sprites/back01.png" type="Texture" id=11]
+[ext_resource path="res://shaders/vhs_scanlines.gdshader" type="Shader" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -46,6 +48,30 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 } ]
 0/z_index = 0
 
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 12 )
+shader_param/overlay = true
+shader_param/scanlines_opacity = 0.088
+shader_param/scanlines_width = 0.197
+shader_param/grille_opacity = 0.0
+shader_param/resolution = Vector2( 800, 600 )
+shader_param/pixelate = false
+shader_param/roll = false
+shader_param/roll_speed = 10.0
+shader_param/roll_size = 0.0
+shader_param/roll_variation = 1.8
+shader_param/distort_intensity = 0.05
+shader_param/noise_opacity = 0.4
+shader_param/noise_speed = 5.0
+shader_param/static_noise_intensity = 0.06
+shader_param/aberration = 0.03
+shader_param/brightness = 1.4
+shader_param/discolor = false
+shader_param/warp_amount = 0.084
+shader_param/clip_warp = false
+shader_param/vignette_intensity = 0.4
+shader_param/vignette_opacity = 0.045
+
 [node name="Main" type="Node2D"]
 
 [node name="background" type="Sprite" parent="."]
@@ -53,9 +79,16 @@ position = Vector2( -514.5, -308.25 )
 scale = Vector2( 8.03906, 4.85156 )
 centered = false
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -256.0
+margin_top = -256.0
+margin_right = 256.0
+margin_bottom = 256.0
+color = Color( 0.603922, 0.580392, 0.713726, 1 )
+
 [node name="Level" type="Node2D" parent="."]
 script = ExtResource( 1 )
-next_level_path = "res://scenes/levels/level09.tscn"
+next_level_path = "res://scenes/levels/level30.tscn"
 
 [node name="GameOver" parent="Level" instance=ExtResource( 5 )]
 
@@ -70,6 +103,7 @@ script = ExtResource( 4 )
 
 [node name="WinItem3" parent="Level/Items" instance=ExtResource( 8 )]
 position = Vector2( 320, 128 )
+scale = Vector2( 0.51, 0.51 )
 
 [node name="Enemies" type="Node" parent="Level"]
 
@@ -91,6 +125,14 @@ position = Vector2( 320, 192 )
 current = true
 
 [node name="EndLevelTimer" type="Timer" parent="Level"]
+
+[node name="background2" type="Sprite" parent="."]
+material = SubResource( 6 )
+position = Vector2( -256, -256 )
+scale = Vector2( 4, 4 )
+z_index = 20
+texture = ExtResource( 11 )
+centered = false
 
 [connection signal="game_over" from="Level/Player" to="Level" method="_on_Player_game_over"]
 [connection signal="timeout" from="Level/EndLevelTimer" to="Level" method="_on_EndLevelTimer_timeout"]
