@@ -86,7 +86,7 @@ centered = false
 
 [node name="Level" type="Node2D" parent="."]
 script = ExtResource( 1 )
-next_level_path = "res://scenes/levels/level09.tscn"
+next_level_path = "res://scenes/levels/WinLevel.tscn"
 
 [node name="GameOver" parent="Level" instance=ExtResource( 4 )]
 
